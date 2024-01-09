@@ -5,7 +5,7 @@ env:
   ECR_REPOSITORY: actapt
   ECS_SERVICE: vproapp-act-svc
   ECS_CLUSTER: vproapp-act
-  ECS_TASK_DEFINITION: aws-files/taskdeffile
+  ECS_TASK_DEFINITION: aws-files/taskdeffile.json
   CONTAINER_NAME: vproapp
 
 jobs:
@@ -95,21 +95,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
   
-      # - name: Login to Amazon ECR
-        # id: login-ecr
-        # uses: aws-actions/amazon-ecr-login@v1
-  
-      # - name: Build, tag, and push image to Amazon ECR
-        # id: build-image
-        # env:
-          # ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          # ECR_REPOSITORY: my-ecr-repo
-          # IMAGE_TAG: ${{ github.sha }}
-        # run: |
-          # docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          # docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          # echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
-
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
