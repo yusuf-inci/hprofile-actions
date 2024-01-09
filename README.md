@@ -1,3 +1,5 @@
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=hprofile555_actionscode)](https://sonarcloud.io/summary/new_code?id=hprofile555_actionscode)
+
 source: https://github.com/hkhcoder/hprofile.git
 # Prerequisites
 #####
